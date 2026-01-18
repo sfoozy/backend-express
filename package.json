@@ -1,0 +1,39 @@
+{
+  "name": "backend-express",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/sfoozy/backend-express#readme",
+  "bugs": {
+    "url": "https://github.com/sfoozy/backend-express/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sfoozy/backend-express.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "start": "npx tsc && node dist/src/app.js",
+    "dev": "nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.2.0",
+    "@prisma/client": "^7.2.0",
+    "bcryptjs": "^3.0.3",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "pg": "^8.17.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^25.0.9",
+    "dotenv": "^17.2.3",
+    "nodemon": "^3.1.11",
+    "prisma": "^7.2.0",
+    "typescript": "^5.9.3"
+  }
+}
