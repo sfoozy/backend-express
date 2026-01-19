@@ -2,7 +2,7 @@ import type { Request, Response } from "express";
 import express from "express";
 import bcrypt from "bcryptjs";
 import prisma from "../prisma/primsa.js";
-import jwt from "jsonwebtoken";
+import { generateJwtToken } from "../utils/auth.js";
 
 const router = express.Router();
 
@@ -43,13 +43,10 @@ router.post("/", async (req: Request, res: Response) => {
     );
   }
 
-  const payload = { userId: user.id, userEmail: user.email };
-  const token = jwt.sign(payload, process.env.JWT_SECRET!, { expiresIn: "1d" });
-
   res.json(
     {
       statusText: "Login successful",
-      token: token,
+      token: generateJwtToken({ userId: user.id, userEmail: user.email }),
     }
   );
 });
