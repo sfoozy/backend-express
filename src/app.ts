@@ -1,9 +1,8 @@
 import "dotenv/config"; // MUST HAVE THIS AT THE TOP FOR PRISMA ORM TO WORK
 import express from "express";
-import root from "./routes/root.js";
-import user from "./routes/user.js";
-import image from "./routes/image.js";
-import login from "./routes/login.js";
+import type { Request, Response } from "express";
+
+import * as hello from "./handlers/hello.js";
 
 const app = express();
 
@@ -14,7 +13,11 @@ app.listen(port, () => {
 });
 
 app.use(express.json());
-app.use("/", root);
-app.use("/api/login", login);
-app.use("/api/user", user);
-app.use("/api/image", image);
+
+// api routes
+
+// HELLO
+
+app.get("/hello", (req: Request, res: Response) => {
+  return hello.getHelloHandler(req, res);
+});
